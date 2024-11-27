@@ -18,6 +18,6 @@ namespace BUMS.Models
         [Column("System_Name")]
         public string SystemName { get; set; }
 
-        public virtual ICollection<UserGroup> UserGroups {get;set;}
+        public virtual ICollection<UserGroup> AccessUserGroups {get;set;}
     }
 }

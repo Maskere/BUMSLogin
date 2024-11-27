@@ -17,6 +17,6 @@ namespace BUMS.Models{
         [Column("Created_By")]
         public User CreatedBy {get;set;}
 
-        public virtual ICollection<UserGroup> UserGroups {get;set;}
+        public virtual ICollection<UserGroup> UserUserGroups {get;set;}
     }
 }
