@@ -1,8 +1,8 @@
 using BUMS.Models;
 using System;
 
-namespace BUMS{
-
+namespace BUMS
+{
     public interface IUserService
     {
         public void AddUser(User user);
@@ -14,9 +14,5 @@ namespace BUMS{
         public IEnumerable<User> GetUser(string filter);
 
         public IEnumerable<User> GetUser();
-
-
-    public interface IUserService{        
-
-    }
+    }    
 }
