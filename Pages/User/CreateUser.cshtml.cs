@@ -25,7 +25,7 @@ namespace BUMS
             {
                 return Page();
             }
-            service.AddUser(user);
+            //service.AddUser(user);
             return RedirectToPage("GetUser");
         }
       
