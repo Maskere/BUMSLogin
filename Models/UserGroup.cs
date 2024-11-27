@@ -8,12 +8,12 @@ namespace BUMS.Models{
         [Column("UserGroup_Id")]
         public int UserGroupID {get;set;}
 
-        [Column("User_Id")]
-        public int UserID {get;set;}
-        [Column("Group_Id")]
-        public int GroupID{get;set;}
-        [Column("Access_Id")]
-        public int AccessID{get;set;}
+        //[Column("User_Id")]
+        //public int UserID {get;set;}
+        //[Column("Group_Id")]
+        //public int GroupID{get;set;}
+        //[Column("Access_Id")]
+        //public int AccessID{get;set;}
 
         //[ForeignKey(nameof(UserID))]
         //[InverseProperty(nameof(User.UserUserGroups))]
