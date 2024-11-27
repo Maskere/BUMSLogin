@@ -1,6 +1,4 @@
-﻿namespace BUMS.Models
-{
-    public class Group
-    {
+﻿namespace BUMS.Models{
+    public class Group{
     }
 }
