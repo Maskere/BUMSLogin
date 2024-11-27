@@ -1,0 +1,41 @@
+﻿@page
+@model BUMS.GetUserModel
+@{
+}
+
+<h1>List of Users</h1>
+<p>
+    <a asp-page="/User/CreateUser">Create New User</a>
+</p>
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+        <a asp-page="/User/GetUser">Back to Full List </a>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> ID </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model.Users)
+            {
+                <tr>
+                    <td> @item.UserName/td>
+                    <td>  @item.UserID </td>
+                    <td>
+                        <p>
+                            <a asp-page="/User/DeleteUser" asp-route-id="@item.UserID">Delete user</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+</table>
