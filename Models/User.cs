@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS.Models{
+    [Table("User")]
     public class User{
         [Key]
         [Column("User_Id")]

@@ -1,12 +1,11 @@
-Access
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS.Models
 {
-    public class Access
+    [Table("Access")]
+        public class Access
     {
-
         public Access() { }
 
         [Required]
@@ -19,8 +18,5 @@ namespace BUMS.Models
 
         [Column("System_Name")]
         public string SystemName { get; set; }
-namespace BUMS.Models{
-    public class Access{
-master
     }
 }
