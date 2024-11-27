@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+Access
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS.Models
@@ -18,5 +19,8 @@ namespace BUMS.Models
 
         [Column("System_Name")]
         public string SystemName { get; set; }
+namespace BUMS.Models{
+    public class Access{
+master
     }
 }
