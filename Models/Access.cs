@@ -1,6 +1,4 @@
-﻿namespace BUMS.Models
-{
-    public class Access
-    {
+﻿namespace BUMS.Models{
+    public class Access{
     }
 }
