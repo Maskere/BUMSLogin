@@ -6,8 +6,9 @@ namespace BUMS.Models{
     public class User{
         [Key]
         [Column("User_Id")]
-        public int UserId {get;set;}
+        public int UserID {get;set;}
 
+        [Required]
         [Column("User_Name")]
         public string UserName {get;set;}
 
