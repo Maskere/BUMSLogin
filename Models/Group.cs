@@ -1,6 +1,3 @@
-UserModelClass
-namespace BUMS.Models{
-    public class Group{
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
