@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BUMS.Models
 {
     [Table("Group")]
-    public partial class Group
+    public class Group
     {
         [Key]
         [Column("Group_Id")]

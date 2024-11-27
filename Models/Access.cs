@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS.Models
 {
-    public class Access
+    [Table("Access")]
+        public class Access
     {
         public Access() { }
         [Required]
