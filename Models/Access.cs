@@ -7,7 +7,6 @@ namespace BUMS.Models
         public class Access
     {
         public Access() { }
-
         [Required]
         [Key]
         [Column("Access_id")]
@@ -18,5 +17,7 @@ namespace BUMS.Models
 
         [Column("System_Name")]
         public string SystemName { get; set; }
+
+        public virtual ICollection<UserGroup> UserGroups {get;set;}
     }
 }
