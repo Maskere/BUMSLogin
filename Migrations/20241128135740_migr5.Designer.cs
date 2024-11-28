@@ -4,6 +4,7 @@ using BUMS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BUMS.Migrations
 {
     [DbContext(typeof(BUMSDbContext))]
-    partial class BUMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241128135740_migr5")]
+    partial class migr5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace BUMS.Migrations
 
                     b.HasKey("AccessID");
 
-                    b.ToTable("Accesss", (string)null);
+                    b.ToTable("Accesss");
                 });
 
             modelBuilder.Entity("BUMS.Models.Group", b =>
@@ -63,7 +66,7 @@ namespace BUMS.Migrations
 
                     b.HasKey("GroupID");
 
-                    b.ToTable("Groups", (string)null);
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("BUMS.Models.User", b =>
@@ -86,7 +89,7 @@ namespace BUMS.Migrations
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BUMS.Models.UserGroup", b =>
@@ -114,7 +117,7 @@ namespace BUMS.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("UserGroup", (string)null);
+                    b.ToTable("UserGroup");
                 });
 
             modelBuilder.Entity("BUMS.Models.UserGroup", b =>

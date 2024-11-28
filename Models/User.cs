@@ -8,10 +8,9 @@ namespace BUMS.Models{
         [Required]
         public string UserName {get;set;}
 
-        //public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-        //public User CreatedBy { get; set; }
-
-        //public virtual ICollection<UserGroup> UserUserGroups { get; set; }
+        public int CreatedBy { get; set; }
+        public ICollection<UserGroup> UserGroups { get; set; }
     }
 }

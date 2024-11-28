@@ -4,6 +4,7 @@ using BUMS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BUMS.Migrations
 {
     [DbContext(typeof(BUMSDbContext))]
-    partial class BUMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241128134215_migr3")]
+    partial class migr3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace BUMS.Migrations
 
                     b.HasKey("AccessID");
 
-                    b.ToTable("Accesss", (string)null);
+                    b.ToTable("Accesss");
                 });
 
             modelBuilder.Entity("BUMS.Models.Group", b =>
@@ -54,7 +57,7 @@ namespace BUMS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<int>("CreatedByUserID")
                         .HasColumnType("int");
 
                     b.Property<string>("GroupName")
@@ -63,7 +66,9 @@ namespace BUMS.Migrations
 
                     b.HasKey("GroupID");
 
-                    b.ToTable("Groups", (string)null);
+                    b.HasIndex("CreatedByUserID");
+
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("BUMS.Models.User", b =>
@@ -77,86 +82,24 @@ namespace BUMS.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users", (string)null);
-                });
-
-            modelBuilder.Entity("BUMS.Models.UserGroup", b =>
-                {
-                    b.Property<int>("UserGroupID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserGroupID"));
-
-                    b.Property<int>("AccessID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GroupID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserGroupID");
-
-                    b.HasIndex("AccessID");
-
-                    b.HasIndex("GroupID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("UserGroup", (string)null);
-                });
-
-            modelBuilder.Entity("BUMS.Models.UserGroup", b =>
-                {
-                    b.HasOne("BUMS.Models.Access", "Access")
-                        .WithMany("UserGroups")
-                        .HasForeignKey("AccessID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BUMS.Models.Group", "Group")
-                        .WithMany("UserGroups")
-                        .HasForeignKey("GroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BUMS.Models.User", "User")
-                        .WithMany("UserGroups")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Access");
-
-                    b.Navigation("Group");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BUMS.Models.Access", b =>
-                {
-                    b.Navigation("UserGroups");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BUMS.Models.Group", b =>
                 {
-                    b.Navigation("UserGroups");
-                });
+                    b.HasOne("BUMS.Models.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("BUMS.Models.User", b =>
-                {
-                    b.Navigation("UserGroups");
+                    b.Navigation("CreatedBy");
                 });
 #pragma warning restore 612, 618
         }
