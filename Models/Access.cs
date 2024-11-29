@@ -6,7 +6,6 @@ namespace BUMS.Models
         public class Access
     {
         [Display(Name = "Access id")]
-        [Required]
         public int AccessID { get; set; }
         [Display(Name = "Access name")]
         [Required]

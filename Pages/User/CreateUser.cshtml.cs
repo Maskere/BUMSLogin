@@ -21,13 +21,12 @@ namespace BUMS
         }
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid) //kig på denne
+            if (!ModelState.IsValid) //kig pï¿½ denne
             {
                 return Page();
             }
             service.AddUser(user);
             return RedirectToPage("GetUser");
-        }
-      
+        }      
     }
 }
