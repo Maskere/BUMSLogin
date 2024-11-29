@@ -6,13 +6,14 @@ namespace BUMS.Models
         public class Access
     {
         [Display(Name = "Access id")]
-        [Required]
         public int AccessID { get; set; }
+        [Required]
         [Display(Name = "Access name")]
-        [Required]
+        [MaxLength(50), MinLength(0)]
         public string AccessName { get; set; }
-        [Display(Name = "System name")]
         [Required]
+        [Display(Name = "System name")]
+        [MaxLength(50), MinLength(0)]
         public string SystemName { get; set; }
         public ICollection<UserGroup> UserGroups { get; set; }
     }
