@@ -25,18 +25,21 @@ namespace BUMS{
             return context.Users.Find(ID);
         }
 
-        public void UpdateUser(User user)
+       
+
+        public void UpdateUser(User user, string UserName)
         {
-            foreach (User User in context.Users)
+            using (var context = new BUMSDbContext())
             {
-                if (User.UserID == User.UserID)
+                var entity = context.Users.FirstOrDefault(item => item.UserID == user.UserID);
+                if (entity != null)
                 {
-                    User.UserID = User.UserID;
-                    User.UserName = User.UserName;
-                    
+                    entity.UserName = UserName;
+                    context.SaveChanges();
                 }
             }
         }
+
 
         public void DeleteUser(User user)
         {
@@ -53,7 +56,7 @@ namespace BUMS{
         }
         public IEnumerable<User> GetUser()
         {
-            
+          
             return context.Users;
         }
     }
