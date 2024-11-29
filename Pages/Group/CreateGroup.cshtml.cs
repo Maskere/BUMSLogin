@@ -13,12 +13,15 @@ public class CreateGroupModel : PageModel{
         }
 
         public IActionResult OnPost(){
-            //if (!ModelState.IsValid){
-                //return Page();
-            //}
+            if (!ModelState.IsValid){
+                return Page();
+            }
+            else{
+
                 Group.CreatedAt = DateTime.Now;
                 Group.CreatedBy = 1;
                 groupService.AddGroup(Group);
+            }
             return RedirectToPage("GetGroup");
         }
 

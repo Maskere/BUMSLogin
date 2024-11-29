@@ -15,6 +15,6 @@ namespace BUMS.Models
         public DateTime CreatedAt { get; set; }
         [Display(Name = "Created by")]
         public int CreatedBy { get; set; }
-        public ICollection<UserGroup> UserGroups { get; set; }
+        //public ICollection<UserGroup> UserGroups { get; set; }
     }
 }
