@@ -17,6 +17,7 @@ public class CreateGroupModel : PageModel{
                 return Page();
             }
             else{
+
                 Group.CreatedAt = DateTime.Now;
                 Group.CreatedBy = 1;
                 groupService.AddGroup(Group);
