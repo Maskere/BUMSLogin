@@ -21,8 +21,7 @@ namespace BUMS{
             context.SaveChangesAsync();
         }
         public User GetUserById(int ID)
-        {
-            
+        {            
             return context.Users.Find(ID);
         }
 

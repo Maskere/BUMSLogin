@@ -15,16 +15,21 @@ namespace BUMS.Services
             context.Groups.Add(group);
             context.SaveChanges();
         }
-
         public void DeleteGroup(Group group)
         {
-            context.Groups.Remove(group);
-            context.SaveChanges();
+            if (group != null)
+            {
+                context.Groups.Remove(group);
+                context.SaveChanges();
+            }
         }
-
         public IEnumerable<Group> GetGroup()
         {
             return context.Groups;
+        }   
+        public Group GetGroupById(int ID)
+        {
+            return context.Groups.Find(ID);
         }
     }
 }

@@ -7,6 +7,6 @@ namespace BUMS.Services.Interfaces
         IEnumerable<Group> GetGroup();
         void AddGroup(Group group);
         void DeleteGroup(Group group);
-
+        public Group GetGroupById(int ID);
     }
 }
