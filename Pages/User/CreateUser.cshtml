@@ -1,5 +1,5 @@
 ﻿@page
-@model BUMS.Pages.User.CreateUserModel
+@model BUMS.CreateUserModel
 @{
 }
 
@@ -14,6 +14,13 @@
                 <label asp-for="@Model.user.Name" class="control-label"></label>
                 <input asp-for="@Model.ingredients.Name" class="form-control" />
                 <span asp-validation-for="@Model.ingredients.Name" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="@Model.service." class="control-label">Varekategori</label><p></p>
+                <select asp-for="@Model.user." asp-items="@Html.GetEnumSelectList<Group>()">
+                    <option selected="selected" value="">Vælg et kategori</option>
+                </select>
+                <span asp-validation-for="@Model.item.StorageType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
