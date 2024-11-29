@@ -16,8 +16,6 @@ public class CreateGroupModel : PageModel{
             //if (!ModelState.IsValid){
                 //return Page();
             //}
-                int i = 0;
-                Group.GroupId = i++;
                 Group.CreatedAt = DateTime.Now;
                 Group.CreatedBy = 1;
                 groupService.AddGroup(Group);
