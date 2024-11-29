@@ -21,7 +21,7 @@ namespace BUMS
         }
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) //kig på denne
             {
                 return Page();
             }
