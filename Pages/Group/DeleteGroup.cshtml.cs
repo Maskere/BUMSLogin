@@ -1,13 +1,14 @@
+using BUMS.Models;
 using BUMS.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BUMS.Pages.Group
+namespace BUMS
 {
     public class DeleteGroupModel : PageModel
     {
         [BindProperty]
-        public Models.Group group { get; set; }
+        public Group group { get; set; }
 
         IGroupService service;
 
