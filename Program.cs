@@ -11,6 +11,8 @@ namespace BUMS
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddDbContext<BUMSDbContext>();
+            builder.Services.AddTransient<IUserService, UserService>();
+            
 
             var app = builder.Build();
 
