@@ -17,14 +17,14 @@ namespace BUMS
         public IEnumerable<User> Users { get; set; } = new List<User>();
         public void OnGet()
         {
-            //if (!String.IsNullOrEmpty(FilterCriteria))
-            //{
-            //    Users = userService.GetUser(FilterCriteria);
-            //}
-            //else
-            //{
-            //    Users = userService.GetUser();
-            //}
+            if (!String.IsNullOrEmpty(FilterCriteria))
+            {
+                Users = userService.GetUser(FilterCriteria);
+            }
+            else
+            {
+                Users = userService.GetUser();
+            }
         }
     }
 }

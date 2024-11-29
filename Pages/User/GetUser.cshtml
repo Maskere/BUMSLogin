@@ -30,6 +30,7 @@
                 <tr>
                     <td> @item.UserName/td>
                     <td>  @item.UserID </td>
+                   @* <td>  @item.UserGroups </td> Denne skal vise gruppen useren er i *@
                     <td>
                         <p>
                             <a asp-page="/User/DeleteUser" asp-route-id="@item.UserID">Delete user</a>
