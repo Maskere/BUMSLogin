@@ -8,5 +8,7 @@ namespace BUMS.Services.Interfaces
         void AddGroup(Group group);
         void DeleteGroup(Group group);
         public Group GetGroupById(int ID);
+        public IEnumerable<Group> FilterGroupByName(string filter);
+        public void UpdateGroup(Group group, string GroupName);
     }
 }
