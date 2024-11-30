@@ -18,16 +18,17 @@ namespace BUMS
         public IActionResult OnGet(int Id)
         {
             user = service.GetUserById(Id);
+           
             return Page();
         }
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            service.UpdateUser(user);
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
+            service.UpdateUser(user, user.UserName);
             return RedirectToPage("GetUser");
         }
     }
