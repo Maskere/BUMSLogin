@@ -14,7 +14,7 @@ namespace BUMS{
         public void OnGet(){
         }
 
-        public IActionResult OnPost(){
+        public IActionResult OnPost(int id){
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -22,7 +22,7 @@ namespace BUMS{
             else
             {
                 User.CreatedAt = DateTime.Now;
-                User.CreatedBy = 1;
+                User.CreatedBy = id;
                 service.AddUser(User);
             }            
             return RedirectToPage("GetUser");

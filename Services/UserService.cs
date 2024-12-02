@@ -9,6 +9,7 @@ namespace BUMS{
 
         public void AddUser(User user){
             context.Users.Add(user);
+            user.UserNavigationId = user.UserNavigationId++;
             context.SaveChangesAsync();
         }
 

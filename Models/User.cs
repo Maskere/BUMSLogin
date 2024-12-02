@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS{
     public class User:IdentityUser{
-        //public int UserID { get; set; }
-
+        [Display(Name = "Id")]
+        public int UserNavigationId { get; set; }
         //[Required]
         //[Display(Name = "User name")]
         //[MaxLength(100), MinLength(0)]
