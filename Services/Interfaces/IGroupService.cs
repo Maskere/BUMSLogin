@@ -1,9 +1,7 @@
-﻿using BUMS.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace BUMS.Services.Interfaces
-{
-    public interface IGroupService
-    {
+namespace BUMS{
+    public interface IGroupService{
         IEnumerable<Group> GetGroup();
         void AddGroup(Group group);
         void DeleteGroup(Group group);

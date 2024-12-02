@@ -1,10 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BUMS.Models
-{
-        public class Access
-    {
+namespace BUMS{
+        public class Access{
         [Display(Name = "Access id")]
         public int AccessID { get; set; }
         [Required]

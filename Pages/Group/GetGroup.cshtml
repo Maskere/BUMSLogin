@@ -32,18 +32,18 @@
             @foreach (var item in Model.Groups)
             {
                 <tr>
-                    <td>@item.GroupId</td>
+                    <td>@item.GroupID</td>
                     <td>@item.GroupName</td>
                     <td>@item.CreatedAt</td>
                     <td>@item.CreatedBy</td>
                     <td>
                         <p>
-                            <a asp-page="/Group/UpdateGroup" asp-route-id="@item.GroupId">Update</a>
+                            <a asp-page="/Group/UpdateGroup" asp-route-id="@item.GroupID">Update</a>
                         </p>
                     </td>
                     <td>
                         <p>
-                            <a asp-page="/Group/DeleteGroup" asp-route-id="@item.GroupId">Delete </a>
+                            <a asp-page="/Group/DeleteGroup" asp-route-id="@item.GroupID">Delete </a>
                         </p>
                     </td>
                 </tr>

@@ -1,10 +1,7 @@
-using BUMS.Models;
-using System;
+using Microsoft.EntityFrameworkCore;
 
-namespace BUMS
-{
-    public interface IUserService
-    {
+namespace BUMS{
+    public interface IUserService{
         public void AddUser(User user);
 
         public User GetUserById(int ID);

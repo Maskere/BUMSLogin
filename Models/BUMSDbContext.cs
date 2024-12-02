@@ -1,13 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BUMS.Areas.Identity.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace BUMS.Models
-{
-    public class BUMSDbContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            options.UseSqlServer(@"Data Source=mssql2.unoeuro.com;Initial Catalog=jaand_dk_db_bums;User ID=jaand_dk;Password=kbm3ydDrAF9cap4n2E6H;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+namespace BUMS{
+    public class BUMSDbContext : DbContext{
+        public BUMSDbContext(DbContextOptions<BUMSDbContext> options) : base(options) { 
         }
+        
         public DbSet<User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Access> Accesss { get; set; }

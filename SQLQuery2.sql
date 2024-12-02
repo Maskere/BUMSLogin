@@ -1,0 +1,5 @@
+﻿DROP TABLE [dbo].[__EFMigrationsHistory]
+DROP TABLE [dbo].[UserGroups]
+DROP TABLE [dbo].[Users]
+DROP TABLE [dbo].[Accesss]
+DROP TABLE [dbo].[Groups]

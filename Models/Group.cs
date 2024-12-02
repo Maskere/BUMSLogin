@@ -1,12 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BUMS.Models
-{
-    public class Group
-    {
+namespace BUMS{
+    public class Group{
         [Display(Name = "Group id")]
-        public int GroupId { get; set; }
+        public int GroupID { get; set; }
         [Required]
         [Display(Name = "Group name")]
         [MaxLength(50), MinLength(0)]

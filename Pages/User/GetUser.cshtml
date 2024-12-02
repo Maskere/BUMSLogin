@@ -33,19 +33,19 @@
             @foreach (var item in Model.Users)
             {
                 <tr>
-                    <td>@item.UserID</td>
+                    <td>@item.Id</td>
                     <td>@item.UserName</td>
                     <td>@item.CreatedAt</td>
                     <td>@item.CreatedBy</td>
                    @* <td>  @item.UserGroups </td> Denne skal vise gruppen useren er i *@
                     <td>
                         <p>
-                            <a asp-page="/User/UpdateUser" asp-route-id="@item.UserID">Update</a>
+                            <a asp-page="/User/UpdateUser" asp-route-id="@item.Id">Update</a>
                         </p>
                     </td>
                     <td>
                         <p>
-                            <a asp-page="/User/DeleteUser" asp-route-id="@item.UserID">Delete</a>
+                            <a asp-page="/User/DeleteUser" asp-route-id="@item.Id">Delete</a>
                         </p>
                     </td>
                 </tr>

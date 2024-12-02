@@ -1,27 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using BUMS.Models;
-using BUMS.Services.Interfaces;
-using System;
 
-
-namespace BUMS
-{
-    public class CreateUserModel : PageModel
-    {
+namespace BUMS{
+    public class CreateUserModel : PageModel{
         [BindProperty]
         public User User { get; set; }
 
         IUserService service;
-        public CreateUserModel(IUserService service)
-        {
+        public CreateUserModel(IUserService service){
             this.service = service;
         }
-        public void OnGet()
-        {
+
+        public void OnGet(){
         }
-        public IActionResult OnPost()
-        {
+
+        public IActionResult OnPost(){
             if (!ModelState.IsValid)
             {
                 return Page();
