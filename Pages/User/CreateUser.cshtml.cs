@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BUMS{
     public class CreateUserModel : PageModel{
+        private static int idCounter = 0;
         [BindProperty]
         public User User { get; set; }
 

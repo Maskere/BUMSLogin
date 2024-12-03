@@ -2,19 +2,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BUMS{
     public class UserService : IUserService{
+        private static int idCounter = 0;
         BUMSDbContext context;
         public UserService(BUMSDbContext Service){
             context = Service;
         }
 
         public void AddUser(User user){
+            user.UserNavigationId = idCounter++;
             context.Users.Add(user);
-            user.UserNavigationId = user.UserNavigationId++;
             context.SaveChangesAsync();
         }
 
         public User GetUserById(int ID){            
-            return context.Users.Find(ID);
+            return context.Users.FirstOrDefault(item => item.UserNavigationId == ID);
         }
 
         public void UpdateUser(User user, string UserName){
