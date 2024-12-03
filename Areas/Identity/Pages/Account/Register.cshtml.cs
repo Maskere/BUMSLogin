@@ -20,11 +20,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
-namespace BUMS.Areas.Identity.Pages.Account
-{
-    public class RegisterModel : PageModel
-    {
-        private static int idCounter = 0;
+namespace BUMS.Areas.Identity.Pages.Account{
+    public class RegisterModel : PageModel{
+        private static int idCounter = 1;
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;

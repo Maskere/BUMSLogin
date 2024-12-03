@@ -1,12 +1,18 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BUMS{
+    [Authorize]
     public class GetUserModel : PageModel{
+        public bool IsAdmin => HttpContext.User.HasClaim("IsAdmin", bool.TrueString);
+
         [BindProperty(SupportsGet = true)]
         public string FilterCriteria { get; set; }
+
         public IEnumerable<User> user { get; set; }
-        IUserService userService { get; set; }
+
+        private IUserService userService { get; set; }
 
         public GetUserModel(IUserService service){
             this.userService = service;
@@ -21,7 +27,7 @@ namespace BUMS{
             }
             else
             {
-                Users = userService.GetUser();
+                Users = userService.GetUsers();
             }
         }
     }

@@ -1,13 +1,15 @@
 ﻿@page
 @model BUMS.GetUserModel
 @{
-    ViewData["Title"] = "Users";
+ViewData["Title"] = "Users";
 }
 
 <h3>List of Users</h3>
+@if(Model.IsAdmin){
 <p>
     <a asp-page="/User/CreateUser">Create New User</a>
 </p>
+}
 <form>
     <p>
         Search: <input type="text" asp-for="FilterCriteria" />
@@ -20,6 +22,7 @@
         <tr>
             <th>User ID</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Created At</th>
             <th>Created By</th>
             <th></th>
@@ -27,28 +30,28 @@
         </tr>
     </thead>
     <tbody>
-
-        @if (Model != null)
-        {
-            @foreach (var item in Model.Users)
-            {
-                <tr>
-                    <td>@item.UserNavigationId</td>
-                    <td>@item.UserName</td>
-                    <td>@item.CreatedAt</td>
-                    <td>@item.CreatedBy</td>
-                   @* <td>  @item.UserGroups </td> Denne skal vise gruppen useren er i *@
-                    <td>
-                        <p>
-                            <a asp-page="/User/UpdateUser" asp-route-id="@item.UserNavigationId">Update</a>
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <a asp-page="/User/DeleteUser" asp-route-id="@item.UserNavigationId">Delete</a>
-                        </p>
-                    </td>
-                </tr>
+        @if (Model != null){
+        @foreach (var item in Model.Users){
+        <tr>
+            <td>@item.UserNavigationId</td>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>@item.CreatedAt</td>
+            <td>@item.CreatedBy</td>
+            @* <td>  @item.UserGroups </td> Denne skal vise gruppen useren er i *@
+            @if(Model.IsAdmin){
+            <td>
+                <p>
+                    <a asp-page="/User/UpdateUser" asp-route-id="@item.UserNavigationId">Update</a>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <a asp-page="/User/DeleteUser" asp-route-id="@item.UserNavigationId">Delete</a>
+                </p>
+            </td>
             }
+        </tr>
+        }
         }
 </table>

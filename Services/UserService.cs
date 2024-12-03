@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BUMS{
     public class UserService : IUserService{
-        private static int idCounter = 0;
         BUMSDbContext context;
         public UserService(BUMSDbContext Service){
             context = Service;
@@ -43,7 +42,7 @@ namespace BUMS{
             return this.context.Set<User>().Where(s => s.UserName.Contains(filter)).AsNoTracking().ToList();
         }
 
-        public IEnumerable<User> GetUser(){
+        public IEnumerable<User> GetUsers(){
           
             return context.Users;
         }

@@ -4,6 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS{
     public class User:IdentityUser{
+        private static int idCounter = 1;
+        public User(){
+            UserNavigationId = idCounter++;
+        }
         [Display(Name = "Id")]
         public int UserNavigationId { get; set; }
 
