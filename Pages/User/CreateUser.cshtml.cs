@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BUMS{
     public class CreateUserModel : PageModel{
-        private static int idCounter = 0;
         [BindProperty]
         public User User { get; set; }
 
@@ -12,16 +11,15 @@ namespace BUMS{
             this.service = service;
         }
 
-        public void OnGet(){
+        public IActionResult OnGet(){
+            return Page();
         }
 
         public IActionResult OnPost(int id){
-            if (!ModelState.IsValid)
-            {
+            if(!ModelState.IsValid){
                 return Page();
             }
-            else
-            {
+            else{
                 User.CreatedAt = DateTime.Now;
                 User.CreatedBy = id;
                 service.AddUser(User);

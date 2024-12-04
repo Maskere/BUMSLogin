@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BUMS{
     public interface IUserService{
-        public static int idCounter = 1;
         public void AddUser(User user);
 
         public User GetUserById(int ID);

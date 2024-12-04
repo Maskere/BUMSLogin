@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS{
     public class User:IdentityUser{
-        private static int idCounter = 1;
+        public static int idCounter;
         public User(){
             UserNavigationId = idCounter++;
         }

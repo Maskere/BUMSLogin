@@ -22,7 +22,8 @@ using Microsoft.Extensions.Logging;
 
 namespace BUMS.Areas.Identity.Pages.Account{
     public class RegisterModel : PageModel{
-        private static int idCounter = 1;
+        private int idCounter;
+        private IUserService service;
 
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
@@ -114,7 +115,6 @@ namespace BUMS.Areas.Identity.Pages.Account{
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-                user.UserNavigationId = idCounter++;
                 user.CreatedAt = DateTime.Now;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
