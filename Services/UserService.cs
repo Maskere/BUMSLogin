@@ -8,6 +8,7 @@ namespace BUMS{
         }
 
         public void AddUser(User user){
+            user.UserNavigationId = GetUsers().Count() + 1;
             context.Users.Add(user);
             context.SaveChangesAsync();
         }
