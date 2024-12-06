@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BUMS.Migrations
 {
     [DbContext(typeof(BUMSDbContext))]
-    [Migration("20241202144352_Create")]
-    partial class Create
+    [Migration("20241206053007_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,6 +56,9 @@ namespace BUMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GroupID"));
 
+                    b.Property<int>("AccessType")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -91,6 +94,7 @@ namespace BUMS.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -127,6 +131,7 @@ namespace BUMS.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -154,18 +159,14 @@ namespace BUMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserGroupID"));
 
-                    b.Property<int>("AccessID")
-                        .HasColumnType("int");
-
                     b.Property<int>("GroupID")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserGroupID");
-
-                    b.HasIndex("AccessID");
 
                     b.HasIndex("GroupID");
 
@@ -313,12 +314,6 @@ namespace BUMS.Migrations
 
             modelBuilder.Entity("BUMS.UserGroup", b =>
                 {
-                    b.HasOne("BUMS.Access", "Access")
-                        .WithMany()
-                        .HasForeignKey("AccessID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BUMS.Group", "Group")
                         .WithMany()
                         .HasForeignKey("GroupID")
@@ -327,9 +322,9 @@ namespace BUMS.Migrations
 
                     b.HasOne("BUMS.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Access");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Group");
 

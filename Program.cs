@@ -15,6 +15,7 @@ namespace BUMS{
                     options.Conventions.AuthorizePage("/CreateUser","Admin"));
             builder.Services.AddTransient<IGroupService, GroupService>();
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IUserGroupService, UserGroupService>();
 
             builder.Services.AddAuthorization(options =>
                     options.AddPolicy("Admin", policy =>

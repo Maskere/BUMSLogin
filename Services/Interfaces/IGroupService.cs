@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace BUMS{
+﻿namespace BUMS{
     public interface IGroupService{
         IEnumerable<Group> GetGroup();
         void AddGroup(Group group);

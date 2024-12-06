@@ -6,7 +6,6 @@ namespace BUMS{
     public class User:IdentityUser{
         public static int idCounter;
         public User(){
-            Console.WriteLine(UserNavigationId);
         }
         [Display(Name = "Id")]
         public int UserNavigationId { get; set; }

@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-
 namespace BUMS{
     public interface IUserService{
         public void AddUser(User user);

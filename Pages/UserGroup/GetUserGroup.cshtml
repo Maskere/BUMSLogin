@@ -1,0 +1,34 @@
+@page
+@model BUMS.GetUserGroupModel
+@{
+ViewData["Title"] = "Get UserGroup";
+}
+
+<p>
+    <a asp-page="/UserGroup/CreateUserGroup">Create New UserGroup</a>
+</p>
+
+<h3>List of usergroups</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserGroupId</th>
+            <th>User</th>
+            <th>GroupId</th>
+            <th>Group</th>
+            <th>AccessId</th>
+            <th>Access</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.userGroups){
+        <tr>
+            <td>@item.UserGroupID</td>
+            <td>@item.User</td>
+            @* <td>@item.GroupID</td> *@
+            <td>@item.Group</td>
+            @* <td>@item.AccessID</td> *@
+            @* <td>@item.Access</td> *@
+        </tr>
+        }
+</table>

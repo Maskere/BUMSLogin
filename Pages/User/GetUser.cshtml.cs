@@ -12,10 +12,9 @@ namespace BUMS{
 
         public IEnumerable<User> user { get; set; }
 
-        private IUserService userService { get; set; }
-
+        private IUserService service { get; set; }
         public GetUserModel(IUserService service){
-            this.userService = service;
+            this.service = service;
         }
 
         public IEnumerable<User> Users { get; set; } = new List<User>();
@@ -23,11 +22,11 @@ namespace BUMS{
         public void OnGet(){
             if (!String.IsNullOrEmpty(FilterCriteria))
             {
-                Users = userService.GetUser(FilterCriteria);
+                Users = service.GetUser(FilterCriteria);
             }
             else
             {
-                Users = userService.GetUsers();
+                Users = service.GetUsers();
             }
         }
     }

@@ -16,6 +16,15 @@
                 <input asp-for="@Model.Group.GroupName" class="form-control" />
                 <span asp-validation-for="@Model.Group.GroupName" class="text-danger"></span>
             </div>            
+            <p></p>
+            <div class="form-group">
+                <label asp-for="@Model.Group.AccessType" class="control-label">Access type</label>
+                <select asp-for="@Model.Group.AccessType" asp-items="@Html.GetEnumSelectList<AccessType>()">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="@Model.Group.AccessType" class="text-danger"></span>
+            </div>
+            <p></p>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
