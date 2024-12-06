@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BUMS{
+    [Authorize]
     public class GetUserGroupModel : PageModel{
+        public bool IsAdmin => HttpContext.User.HasClaim("IsAdmin", bool.TrueString);
+
         [BindProperty]
         public User User {get;set;}
         [BindProperty]
@@ -17,6 +21,7 @@ namespace BUMS{
             this.service = service;
         }
         public IActionResult OnGet(){
+            if(!IsAdmin) return Forbid();
             userGroups = service.GetUserGroups();
             return Page();
         }

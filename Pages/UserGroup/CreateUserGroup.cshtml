@@ -10,6 +10,19 @@ ViewData["Title"] = "Create UserGroup";
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger">
             </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserGroup.User" class="control-label"></label>
+                <input asp-for="@Model.UserGroup.User" class="form-control"></input>
+                <span asp-validation-for="@Model.UserGroup.User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserGroup.Group" class="control-label"></label>
+                <input asp-for="@Model.UserGroup.Group" class="form-control"></input>
+                <span asp-validation-for="@Model.UserGroup.Group" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>

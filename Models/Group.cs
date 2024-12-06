@@ -4,11 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BUMS{
     public class Group{
-        private AccessType _accessType;
-
-        public Group(){
-            _accessType = AccessType;
-        }
         [Display(Name = "Group id")]
         public int GroupID { get; set; }
 
@@ -30,7 +25,7 @@ namespace BUMS{
         [Display(Name = "AccessType")]
         [EnumDataType(typeof(AccessType))]
         [Required]
-        public AccessType AccessType {get { return _accessType; } set { _accessType = value; } }
+        public AccessType AccessType { get; set; }
         //public ICollection<UserGroup> UserGroups { get; set; }
     }
 }
